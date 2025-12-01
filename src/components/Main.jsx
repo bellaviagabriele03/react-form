@@ -30,6 +30,19 @@ function Main() {
         setAddGame("");
     };
 
+    function removeItem(indexRemove) {
+       console.log("click");
+       const newArray = [];
+       for(let i = 0; i < listTitle.length; i++) {
+            if(i !== indexRemove) {
+                newArray.push(listTitle[i])
+            }
+       }
+       setList(newArray);
+       
+       
+    }
+
 
 
     return (
@@ -39,7 +52,16 @@ function Main() {
                 <ul className="list-group">
                     {listTitle.map(function (curElem, index) {
                         return (
-                            <li className="list-group-item bg-secondary text-white" key={index}>{curElem}</li>
+                            <li className="list-group-item bg-secondary text-white" key={index}>{curElem}
+                                <button className="btn btn-warning mx-3"
+                                  onClick={() => {
+                                    removeItem(index);
+                                  }}
+                                >
+                                    REMOVE
+                                </button>
+                            </li>
+
                         )
                     })}
                 </ul>
@@ -60,7 +82,7 @@ function Main() {
                                 }}
                             />
 
-                            <button type="submit" className="btn btn-warning mt-2">SEND</button>
+                            <button type="submit" className="btn btn-success mt-2">SEND</button>
                         </form>
                     </div>
                     <div className="col-8">
