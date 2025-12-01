@@ -14,7 +14,7 @@ function Main() {
             "Call of Duty",
             "GTA VI",
             "Dark Souls",
-            "Fc 26"
+            "Fc 26",
         ]
     )
 
@@ -44,10 +44,18 @@ function Main() {
     }
 
     function renameItem(indexItem) {
-        const newName = prompt("New Name")
-        console.log(newName, indexItem);
-        
-
+        let newName = prompt("New Name")
+        const testArray = [];
+        for(let i = 0; i < listTitle.length; i++) {
+            const curElem = listTitle[i]
+            if(i !== indexItem) {
+                listTitle[i] = newName;
+                testArray.push(listTitle[i])
+    
+                  
+            }
+        }
+        setList(testArray)
 
     }
 
