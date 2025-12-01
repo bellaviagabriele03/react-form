@@ -15,6 +15,7 @@ function Main() {
             "GTA VI",
             "Dark Souls",
             "Fc 26",
+            "David Cavallo supremo"
         ]
     )
 
@@ -45,16 +46,15 @@ function Main() {
 
     function renameItem(indexItem) {
         let newName = prompt("New Name")
-        const testArray = [];
-        for(let i = 0; i < listTitle.length; i++) {
-            const curElem = listTitle[i]
-            if(i !== indexItem) {
-                listTitle[i] = newName;
-                testArray.push(listTitle[i])
-    
-                  
+        let testArray = listTitle.map(function(curElem, indexMp){
+            if(indexMp === indexItem) {
+                curElem = newName;
+                return  curElem               
             }
-        }
+            return curElem
+        })
+       
+
         setList(testArray)
 
     }
@@ -67,7 +67,8 @@ function Main() {
                 <ul className="list-group">
                     {listTitle.map(function (curElem, index) {
                         return (
-                            <li className="list-group-item bg-secondary text-white" key={index}>{curElem}
+                            <li className="list-group-item bg-secondary text-white" key={index}>
+                                {curElem}
                                 <button className="btn btn-warning mx-3"
                                     onClick={() => {
                                         removeItem(index);
