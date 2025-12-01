@@ -31,18 +31,25 @@ function Main() {
     };
 
     function removeItem(indexRemove) {
-       console.log("click");
-       const newArray = [];
-       for(let i = 0; i < listTitle.length; i++) {
-            if(i !== indexRemove) {
+        console.log("click", indexRemove);
+        const newArray = [];
+        for (let i = 0; i < listTitle.length; i++) {
+            if (i !== indexRemove) {
                 newArray.push(listTitle[i])
             }
-       }
-       setList(newArray);
-       
-       
+        }
+        setList(newArray);
+
+
     }
 
+    function renameItem(indexItem) {
+        const newName = prompt("New Name")
+        console.log(newName, indexItem);
+        
+
+
+    }
 
 
     return (
@@ -54,11 +61,18 @@ function Main() {
                         return (
                             <li className="list-group-item bg-secondary text-white" key={index}>{curElem}
                                 <button className="btn btn-warning mx-3"
-                                  onClick={() => {
-                                    removeItem(index);
-                                  }}
+                                    onClick={() => {
+                                        removeItem(index);
+                                    }}
                                 >
                                     REMOVE
+                                </button>
+                                <button className="btn btn-warning mx-3"
+                                    onClick={() => {
+                                        renameItem(index)
+                                    }}
+                                >
+                                    RENAME
                                 </button>
                             </li>
 
